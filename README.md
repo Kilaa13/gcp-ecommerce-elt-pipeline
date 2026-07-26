@@ -1,5 +1,6 @@
 ## Project Overview
 This project is an automated data pipeline built to process and analyze online shoppers’ purchasing behavior data. The system automatically retrieves raw telemetry data from the data lake, ingests it into the data warehouse, and executes parallel transformations to segment transaction activity and generate monthly revenue reporting views. The entire data workflow is dynamically orchestrated using **Apache Airflow v3** deployed on Google Cloud Platform (GCP) infrastructure.
+
 ---
 
 ## Data Source
@@ -34,8 +35,8 @@ The pipeline implements a multi-tier **Medallion Data Architecture** within Goog
                  ├─► BRONZE LAYER  ──► GCS Sensor Validation (check_file_exists)
                  ├─► SILVER LAYER  ──► Load Raw CSV into Staging (staging_data.online_shoppers)
                  └──► GOLD LAYER    ──► Monthly Table Filtering & Revenue Analytics Views
-                                                            │
-                                                            ▼
+                 │
+                 ▼
          [ Google BigQuery ]
        (staging_data Dataset)
                  │
